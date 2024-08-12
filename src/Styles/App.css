@@ -1,3 +1,7 @@
+* {
+  font-family: "Cairo", fantasy;
+}
+
 .App {
   text-align: center;
 }
@@ -38,50 +42,38 @@
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px; /* Optional: Adds spacing between columns */
-}
-
-.container div {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
 }
 
-.parent {
-  width: 70%;
+.content-container {
   display: flex;
-  justify-content: center;
+  justify-items: center;
   align-items: center;
-  flex-direction: column;
-  border: 3px solid rgb(0, 212, 0);
-  margin-bottom: 20px;
+  align-self: center;
+  justify-content: center;
+  justify-self: center;
+  margin: 0 10px;
 }
-
-.hHasLine {
-  padding-bottom: 10px;
-  width: 90%;
+.contentDivs {
+  width: 95%;
   display: flex;
+  flex-wrap: wrap;
+  justify-items: flex-start;
   justify-content: center;
-  border-bottom: 2px solid gray;
-}
 
-button {
-  width: 70px;
+  gap: 30px;
 }
-.right {
-  display: grid;
-  width: 400px;
-  border: 2px solid #61dafb;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(8, 2fr);
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+.contentDivs div {
+  align-self: self-start;
+  /* text-align: center; */
 }
-
-.littleDiv {
-  padding: 10px;
-  text-align: center;
+/* .content {
+  border: 1px solid black;
+  border-radius: 10px;
+} */
+.content img {
+  width: 450px;
+  height: 350px;
+  border-radius: 10px;
 }

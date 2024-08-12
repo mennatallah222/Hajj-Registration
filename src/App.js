@@ -1,13 +1,13 @@
 // import logo from "./logo.svg";
-import "./App.css";
+import "./Styles/App.css";
+import { data } from "../src/Components/data";
+import Content from "./Components/Content";
 
-function App() {
-  return (
-    <div className={"parent"}>
-      <h1 className={"hHasLine"}>This is post title</h1>
-      <h3>This is small one</h3>
-    </div>
-  );
+
+export default function App(){
+  console.log(data);
+  const response=data.map((item, index)=>(
+    <Content key={index} img={item.photo} title={item.title} rating={item.rating} details={item.datails} price={item.price} /> 
+  ));
+  return <div className={"contentDivs"}>{response}</div> ;
 }
-
-export default App;
