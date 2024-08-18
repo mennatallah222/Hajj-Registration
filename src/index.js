@@ -5,19 +5,18 @@ import "./Styles/all.min.css";
 import  './Styles/style.css';
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import SignUp from "./SignUp";
-// import Header from "./Components/Navbar";
-
+import {BrowserRouter} from 'react-router-dom'
 
 
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    {
-    <SignUp/>
-    
+  <BrowserRouter>
+  {
+      <>
+      <App/>
+    </>
     
     
     /* <div className="container">
@@ -30,7 +29,7 @@ root.render(
         
       </div>
     </div> */}
-  </React.StrictMode>
+</BrowserRouter>
 );
 
 reportWebVitals();

@@ -1,8 +1,10 @@
 // import logo from "./logo.svg";
 import "./Styles/App.css";
-import { data } from "../src/Components/data";
-// import Content from "./Components/Content";
-import React, { useEffect, useState } from "react";
+import SignUp from "./SignUp";
+import Login from "./Login";
+import Header from "./Header";
+import Home from "./Home";
+import { Route, Routes } from "react-router-dom";
 
 // const cors = require('cors');
 // App.use(cors({
@@ -12,6 +14,15 @@ import React, { useEffect, useState } from "react";
 
 export default function App(){
 
+  return <div>
+
+    <Header/>
+    <Routes>
+      <Route path="/register" element={<SignUp/>}/>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/" element={<Home />} />
+    </Routes>
+  </div>
   
   // const [data, setData] = useState([]);
 

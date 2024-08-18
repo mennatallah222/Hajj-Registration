@@ -1,10 +1,12 @@
 * {
   box-sizing: border-box;
   outline: none;
+  text-decoration: none;
 }
-
-.sign-up {
+body {
   height: 100vh;
+}
+.sign-up {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +14,7 @@
 
 .sign-up form {
   position: relative;
-  margin: 10px;
+  margin: 80px;
   width: 500px;
   height: fit-content;
   display: flex;
@@ -37,7 +39,8 @@
   border: none;
   transition: all 0.5s ease;
 }
-.sign-up form button:hover {
+.sign-up form button:hover,
+.inWebsite a:hover {
   background-color: rgb(118, 126, 158);
 }
 
@@ -54,4 +57,48 @@
   font-size: 12px;
   margin-top: 12px;
   margin-left: 10px;
+}
+
+/* header buttons */
+.inWebsite {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+.inWebsite a {
+  width: 80px;
+  height: 40px;
+  border-radius: 80px;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: rgb(151, 161, 200);
+  color: white;
+  transition: all 0.5s ease;
+}
+
+.inWebsite .profileIcon {
+  width: 90px;
+  height: 40px;
+  border-radius: 5px !important;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  color: rgb(0, 0, 0);
+  transition: all 0.5s ease;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
 }
