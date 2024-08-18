@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { Card } from "./Card";
+// import React, { useEffect, useState } from "react";
+// import { Card } from "./Card";
 
-export default function Content(props) {
+// export default function Content(props) {
     
-    return <div className="content">
-    <img src={props.image} alt="img"></img>
+//     return <div className="content">
+//     <img src={props.image} alt="img"></img>
 
 
-     <br/>
-     <h2 style={{fontSize:"12px"}} >{props.title}</h2>
+//      <br/>
+//      <h2 style={{fontSize:"12px"}} >{props.title}</h2>
 
     
-     {/* <h3>{props.details}</h3> */}
+//      {/* <h3>{props.details}</h3> */}
    
-    <div className="pricenrate" style={{display:"flex", flexDirection:"row", justifyContent:"space-between", margin:"0"}}>      
-        <h4>{props.price} $</h4>
-        <h4 style={{color:"#717171"}}>{props.rating} <i className="fa-solid fa-star" style={{color:"gold"}}></i></h4>          
-     </div>
-</div>
-}
+//     <div className="pricenrate" style={{display:"flex", flexDirection:"row", justifyContent:"space-between", margin:"0"}}>      
+//         <h4>{props.price} $</h4>
+//         <h4 style={{color:"#717171"}}>{props.rating} <i className="fa-solid fa-star" style={{color:"gold"}}></i></h4>          
+//      </div>
+// </div>
+// }
 
 
 //const [heart, changeHeartState]=React.useState(true);
