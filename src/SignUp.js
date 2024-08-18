@@ -2,10 +2,17 @@ import { useState } from "react";
 import axios from './api/axios';
 
 export default function SignUp() {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [repeatPassword, setRepeatPassword] = useState("");
+    // const [name, setName] = useState("");
+    // const [email, setEmail] = useState("");
+    // const [password, setPassword] = useState("");
+    // const [repeatPassword, setRepeatPassword] = useState("");
+    const [data, setData]=useState({
+        name:"",
+        email:"",
+        password:"",
+        repeatPassword:""
+    });
+
     const [accept, setAccept] = useState(false);
     const [flag, setFlag] = useState(true);
 
@@ -19,7 +26,7 @@ export default function SignUp() {
         setErrorMsg("");//to clear previous error messages
         setSuccessMsg(false);
     
-        if (name === "" || password.length < 8 || repeatPassword !== password) {
+        if (data.name === "" || data.password.length < 8 || data.repeatPassword !== data.password) {
             setFlag(false);//if data is not valid
         } else {
             setFlag(true);
@@ -27,7 +34,7 @@ export default function SignUp() {
     
         if (flag) {
             try {
-                const response = await axios.post('/register', { name, email, password }, {
+                const response = await axios.post('/register', {name: data.name, email: data.email, password: data.password }, {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
                 });
@@ -35,7 +42,7 @@ export default function SignUp() {
                 console.log("Request was successful", response.data);
 
                 if(response.status===200){
-                    window.localStorage.setItem("email", email);
+                    window.localStorage.setItem("email", data.email);
                     window.location.pathname="/";
                 }
             } catch (err) {
@@ -55,38 +62,38 @@ export default function SignUp() {
             <form onSubmit={Submit}>
                 <label htmlFor="name">Name </label>
                 <input
-                    value={name}
-                    onChange={e => setName(e.target.value)}
+                    value={data.name}
+                    onChange={e => setData({...data, name: e.target.value})}
                     type="text"
                     placeholder="Enter your name..."
                 />
-                {name === "" && accept && <p className={"error"}>Name is required</p>}
+                {data.name === "" && accept && <p className={"error"}>Name is required</p>}
                 {/* {name.length < 4 && accept && <p className={"error"}>Name length must be at least 3 characters long</p>} */}
                 
                 <label htmlFor="email">Email </label>
                 <input
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    value={data.email}
+                    onChange={e => setData({...data, email: e.target.value})}
                     type="email"
                     placeholder="Enter your email..."
                 />
                 
                 <label htmlFor="password">Password </label>
                 <input
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
+                    value={data.password}
+                    onChange={e => setData({...data, password: e.target.value})}
                     type="password"
                     placeholder="Enter password..."
                 />
-                {password.length < 8 && accept && <p className={"error"}>Password must be more than 8 characters</p>}
+                {data.password.length < 8 && accept && <p className={"error"}>Password must be more than 8 characters</p>}
 
                 <label htmlFor="repeat">Repeat password </label>
                 <input
-                    value={repeatPassword}
-                    onChange={e => setRepeatPassword(e.target.value)}
+                    value={data.repeatPassword}
+                    onChange={e => setData({...data, repeatPassword:e.target.value})}
                     type="password"
                 />
-                {repeatPassword !== password && accept && <p className={"error"}>Passwords must match</p>}
+                {data.repeatPassword !== data.password && accept && <p className={"error"}>Passwords must match</p>}
                 
                 <button type="submit">Submit</button>
 
