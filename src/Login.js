@@ -25,7 +25,8 @@ export default function Login() {
                 setSuccessMsg(true);
                 console.log("Request was successful", response.data);
                 if(response.status===200){
-                    window.localStorage.setItem("token", response.data.token);
+                    window.localStorage.setItem("auth-token", response.data.token);
+
                     window.localStorage.setItem("email", email);
                     window.location.pathname="/";
                 }

@@ -1,16 +1,15 @@
 // import logo from "./logo.svg";
 import "./Styles/App.css";
+import "./Styles/dashboard.css"
 import SignUp from "./SignUp";
 import Login from "./Login";
 import Header from "./Header";
 import Home from "./Home";
 import { Route, Routes } from "react-router-dom";
+import Dashboard from "./Dashboard";
+import Users from "./Users";
 
-// const cors = require('cors');
-// App.use(cors({
-//   origin: 'http://example.com', // Allow only this origin
-//   methods: ['GET', 'POST'], // Allow only GET and POST requests
-// }));
+
 
 export default function App(){
 
@@ -21,6 +20,12 @@ export default function App(){
       <Route path="/register" element={<SignUp/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/" element={<Home />} />
+
+      <Route path="/dashboard" element={<Dashboard />}>
+        <Route path="users" element={<Users/>}/>
+      </Route>
+        
+
     </Routes>
   </div>
   

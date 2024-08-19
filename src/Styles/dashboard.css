@@ -1,0 +1,40 @@
+.d-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+}
+.side-bar {
+  /* display: ruby-text; */
+  display: flex;
+}
+.side-bar-content {
+  width: 15rem;
+  height: 89vh;
+  padding: 20px;
+  border-right: 1px solid rgb(145, 145, 145);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  table-layout: fixed;
+}
+th {
+  background-color: rgb(90, 185, 153);
+}
+td {
+  white-space: nowrap;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+th,
+td {
+  border: 1px solid rgb(145, 145, 145);
+  padding: 0.75rem;
+}
