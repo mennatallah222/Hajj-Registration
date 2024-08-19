@@ -38,3 +38,8 @@ td {
   border: 1px solid rgb(145, 145, 145);
   padding: 0.75rem;
 }
+
+.icons i {
+  padding: 10px;
+  cursor: pointer;
+}

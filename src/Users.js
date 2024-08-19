@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from './api/axios';
 
 export default function Users() {
@@ -16,6 +17,18 @@ export default function Users() {
 
     // const res=users.map((u)=><td>{u.name}</td>);
 
+    function deleteUser(id){
+        const token = localStorage.getItem('auth-token');//retrieve the token from localStorage
+        axios.delete(`/delete/${id}`, {
+            headers: { 'auth-token': token }
+        })
+        .then(()=>{
+            //updating the state by filtering out the deleted user
+            setUsers(users.filter(u=>u.id!==id));
+        })
+    }
+
+
     return (
         <div style={{ padding: "20px" }}>
             <table>
@@ -24,6 +37,7 @@ export default function Users() {
                         <th>id</th>
                         <th>name</th>
                         <th>email</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,6 +47,12 @@ export default function Users() {
                                 <td>{u.id}</td>
                                 <td>{u.name}</td>
                                 <td>{u.email}</td>
+                                <td className="icons">
+                                <i className="fa-solid fa-trash" style={{color:"red"}} onClick={()=>deleteUser(u.id)}></i>
+                                <Link to={`${u.id}`}>
+                                    <i className="fa-solid fa-pen-to-square" style={{color:"blue"}}></i>
+                                </Link>
+                                </td>
                             </tr>
                         ))}
                     

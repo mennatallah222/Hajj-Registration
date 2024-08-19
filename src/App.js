@@ -8,6 +8,7 @@ import Home from "./Home";
 import { Route, Routes } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Users from "./Users";
+import UpdateUser from "./UpdateUser";
 
 
 
@@ -23,6 +24,8 @@ export default function App(){
 
       <Route path="/dashboard" element={<Dashboard />}>
         <Route path="users" element={<Users/>}/>
+        <Route path="users/:id" element={<UpdateUser/>}/>
+
       </Route>
         
 
