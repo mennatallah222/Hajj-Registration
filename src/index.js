@@ -5,7 +5,10 @@ import "./Styles/all.min.css";
 import  './Styles/style.css';
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter} from 'react-router-dom';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 
 
 
@@ -18,17 +21,7 @@ root.render(
       <App/>
     </>
     
-    
-    /* <div className="container">
-      <div>
-        <Header/>
-
-        <div className={"content-container"}>
-         <App/>
-        </div>
-        
-      </div>
-    </div> */}
+  }
 </BrowserRouter>
 );
 
