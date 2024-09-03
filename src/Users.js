@@ -8,18 +8,18 @@ export default function Users() {
 
     useEffect(() => {
         const token = localStorage.getItem('auth-token');//retrieve the token from localStorage
-        axios.get('/all', {
+        axios.get('/user/all', {
             headers: { 'auth-token': token }
         })
         .then((data)=>setUsers(data.data))
         
     }, []);
 
-    // const res=users.map((u)=><td>{u.name}</td>);
+    
 
     function deleteUser(id){
         const token = localStorage.getItem('auth-token');//retrieve the token from localStorage
-        axios.delete(`/delete/${id}`, {
+        axios.delete(`/user/delete/${id}`, {
             headers: { 'auth-token': token }
         })
         .then(()=>{

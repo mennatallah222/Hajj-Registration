@@ -1,6 +1,5 @@
-import { Outlet, Route, Routes } from "react-router-dom";
+import { Outlet} from "react-router-dom";
 import Sidebar from "./Sidebar";
-import Users from "./Users";
 
 export default function Dashboard(){
     return (<div className="side-bar">

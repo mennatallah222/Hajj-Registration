@@ -1,6 +1,9 @@
 // import CircleSvg from "./CircleSvg"
 
 export default function Card({img, span, p, price}){
+
+ 
+
     return <>
         <div className="card-container">
                     {/* <CircleSvg/>                     */}

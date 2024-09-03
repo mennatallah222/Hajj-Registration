@@ -34,7 +34,7 @@ export default function SignUp() {
     
         if (flag) {
             try {
-                const response = await axios.post('/register', {name: data.name, email: data.email, password: data.password }, {
+                const response = await axios.post('user/register', {name: data.name, email: data.email, password: data.password }, {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
                 });

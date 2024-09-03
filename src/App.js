@@ -9,6 +9,9 @@ import { Route, Routes } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Users from "./Users";
 import UpdateUser from "./UpdateUser";
+import ContactUs from "./ContactUs";
+import Packages from "./Packages";
+import AddPackage from "./AddPackage";
 
 
 
@@ -21,11 +24,14 @@ export default function App(){
       <Route path="/register" element={<SignUp/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/" element={<Home />} />
+      <Route path="/contact-us" element={<ContactUs />} />
 
       <Route path="/dashboard" element={<Dashboard />}>
         <Route path="users" element={<Users/>}/>
         <Route path="users/:id" element={<UpdateUser/>}/>
 
+        <Route path="packages" element={<Packages/>}/>
+        <Route path="packages/add-package" element={<AddPackage/>}/>
       </Route>
         
 
