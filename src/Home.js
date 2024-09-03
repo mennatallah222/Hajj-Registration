@@ -48,8 +48,8 @@ export default function Home() {
             {/* <p id="second-title">10 steps closer to 1445 Hajj</p> */}
             <div className="cards-container">
                 {
-                    cards.map((card, index)=>(
-                        <Card key={index} img={card.img} span={card.span} p={card.p} price={card.price}/>
+                    cards.map((card, _id)=>(
+                        <Card key={_id} img={`http://localhost:5000/uploads/${card.img}`} span={card.span} p={card.p} price={card.price}/>
                     ))
                 }
                 <Card img={img1} span={"Best Seller"} p={"umrah 9 days"} price={"$1950/preson"}/>

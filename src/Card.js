@@ -8,7 +8,7 @@ export default function Card({img, span, p, price}){
         <div className="card-container">
                     {/* <CircleSvg/>                     */}
             <div className="card">
-                <img src={img} alt="package"></img>
+                <img src={`${img.replace(/\\/g, '/')}`} alt="package"></img>
                 
                 <div className="card-text">
                     <span>{span}</span>

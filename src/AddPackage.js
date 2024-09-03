@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from './api/axios';
 import { useState } from "react";
 
 export default function AddPackage(){
@@ -30,20 +30,25 @@ export default function AddPackage(){
         formData.append('p', data.p);
         formData.append('price', data.price);
     
+        console.log("Selected file:", data.img);
+
         try {
             const response = await axios.post('/cards/add', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             });
+            
             setSuccessMsg(true);
             console.log("Request was successful", response.data);
     
             if (response.status === 200) {
                 window.location.pathname = "/";
             }
-        } catch (err) {
-            console.log("error happened: ", err.message);
+        } 
+        catch (err) {
+            console.error("Error occurred:", err);
+            console.error("Response data:", err.response?.data);
             setErrorMsg(err.response?.data?.message || 'An error occurred');
         }
     }
@@ -95,7 +100,7 @@ export default function AddPackage(){
                 ) : successMsg && !errorMsg? (
                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "8px" }}>
                         <i className="info fa-solid fa-check" style={{borderRadius:"50%", border:"1px solid rgb(7, 183, 7)", padding:"5px"}}></i>
-                        <p className="info" style={{ margin: 0, marginBottom: -10 }}>Signed up successfully!</p>
+                        <p className="info" style={{ margin: 0, marginBottom: -10 }}>Added successfully!</p>
                     </div>
                 ) : null}
 
