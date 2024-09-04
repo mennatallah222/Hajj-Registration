@@ -9,7 +9,7 @@ export default function Dashboard(){
             <Sidebar/>
         </div>
         
-        <div style={{width:"80%"}}>
+        <div style={{width:"80%", display:"flex", justifyContent:"center"}}>
             <Outlet/>
         </div>
 

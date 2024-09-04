@@ -56,7 +56,10 @@ export default function AddPackage(){
     
     
     return (
-        <form onSubmit={Submit} style={{display:"flex", flexDirection:"column", padding:"20px", gap:"10px"}}>
+        <div id='package-form'>
+
+        
+        <form onSubmit={Submit} style={{display:"flex", justifyContent:"center", color:"white", flexDirection:"column", padding:"20px", gap:"10px", width:"90%"}} >
 
 
             <label htmlFor="p">Package Name </label>
@@ -107,5 +110,6 @@ export default function AddPackage(){
 
 
         </form>
+        </div>
     )
 }
