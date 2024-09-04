@@ -74,6 +74,54 @@ section {
 }
 
 /* header buttons */
+nav {
+  display: grid;
+  flex-wrap: wrap;
+  align-items: "center";
+  grid-column: repeat(3, auto);
+  justify-content: space-between;
+  margin: 0 30px;
+  padding: 20px;
+}
+#nav-div {
+  grid-column: 2;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  gap: 20px;
+}
+
+#nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+@media (max-width: 823px) {
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+  }
+  #nav-div {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #nav-toggle {
+    display: block;
+  }
+
+  #nav-div.show {
+    display: flex;
+    transform: translate(-250%, 0);
+  }
+}
+#nav-div a {
+  color: black;
+}
 .inWebsite {
   display: flex;
   justify-content: space-between;
@@ -449,6 +497,7 @@ section {
   color: white;
   background-color: transparent;
   width: 100%;
+  margin-bottom: 10px;
 }
 .contact textarea {
   width: 100%;
@@ -555,16 +604,19 @@ section {
   text-align: center;
   border-radius: 10px;
 }
-.modal-content button {
-  padding: 5px 40px;
+.modal-content button,
+.delete-btn {
+  padding: 5px 30px;
   margin: 10px;
   border: none;
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: gray;
   color: #fff;
+  font-size: 15px;
   cursor: pointer;
 }
-.modal-content button:first-of-type {
+.modal-content button:first-of-type,
+.delete-btn {
   background-color: red;
 }
 .notification {
@@ -590,7 +642,7 @@ section {
     right: -50%;
   }
   100% {
-    right: 10%;
+    right: 5%;
   }
 }
 /*

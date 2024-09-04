@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
@@ -8,9 +9,12 @@ function Header() {
         navigate("/login");
     }
 
+    const [isNavOpen, setNav]=useState(false);
+
     return (
-        <nav style={{ display: "grid", flexWrap: "wrap", alignItems: "center", gridTemplateColumns: "repeat(3, auto)", justifyContent: "space-between", margin: "0 30px", padding: "20px" }}>
-            <div style={{ gridColumn: "2", display: "flex", justifyContent: "space-between", alignContent: "center", gap: "20px" }}>
+        <nav id="nav">
+            <button id="nav-toggle" onClick={()=>setNav(!isNavOpen)}>☰</button>
+            <div id="nav-div" className={isNavOpen?"show":""}>
                 <Link to={"/"}>Home</Link>
                 <Link to={"/about"}>About</Link>
                 <Link to={"/contact-us"}>Contact Us</Link>

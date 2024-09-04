@@ -4,5 +4,6 @@ export default function Sidebar(){
     return <div style={{display:"flex", flexDirection:"column"}}>
         <Link to="/dashboard/users">Users</Link>
         <Link to="/dashboard/packages">Packages</Link>
+        <Link to="/dashboard/messages">Messages</Link>
     </div>
 }

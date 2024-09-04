@@ -30,7 +30,7 @@ export default function AddPackage(){
         formData.append('p', data.p);
         formData.append('price', data.price);
     
-        console.log("Selected file:", data.img);
+        // console.log("Selected file:", data.img);
 
         try {
             const response = await axios.post('/cards/add', formData, {

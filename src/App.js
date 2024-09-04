@@ -12,6 +12,7 @@ import UpdateUser from "./UpdateUser";
 import ContactUs from "./ContactUs";
 import Packages from "./Packages";
 import AddPackage from "./AddPackage";
+import Messages from "./Messages";
 
 
 
@@ -32,6 +33,8 @@ export default function App(){
 
         <Route path="packages" element={<Packages/>}/>
         <Route path="packages/add-package" element={<AddPackage/>}/>
+
+        <Route path="messages" element={<Messages/>}/>
       </Route>
         
 

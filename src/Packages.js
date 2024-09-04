@@ -64,7 +64,7 @@ export default function Packages() {
                                     <td>{p.span}</td>
                                     <td>{p.price}</td>
                                     <td className="icons">
-                                    <i className="fa-solid fa-trash" style={{color:"red"}} onClick={()=>handleDelete(p._id)}></i>
+                                        <i className="fa-solid fa-trash" style={{color:"red"}} onClick={()=>handleDelete(p._id)}></i>
                                         <Link to={`${p._id}`}>
                                             <i className="fa-solid fa-pen-to-square" style={{color:"blue"}}></i>
                                         </Link>
