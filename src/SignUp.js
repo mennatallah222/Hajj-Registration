@@ -43,6 +43,8 @@ export default function SignUp() {
 
                 if(response.status===200){
                     window.localStorage.setItem("email", data.email);
+                    console.log(data.role);
+                    window.localStorage.setItem("role", response.data.role);
                     window.location.pathname="/";
                 }
             } catch (err) {

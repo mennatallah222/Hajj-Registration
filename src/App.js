@@ -13,6 +13,9 @@ import ContactUs from "./ContactUs";
 import Packages from "./Packages";
 import AddPackage from "./AddPackage";
 import Messages from "./Messages";
+import Footer from "./Footer";
+import PackageDetails from "./PackageDetails";
+
 
 
 
@@ -25,6 +28,8 @@ export default function App(){
       <Route path="/register" element={<SignUp/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/" element={<Home />} />
+      <Route path="/packages/:id" element={<PackageDetails/>}/>
+
       <Route path="/contact-us" element={<ContactUs />} />
 
       <Route path="/dashboard" element={<Dashboard />}>
@@ -39,6 +44,10 @@ export default function App(){
         
 
     </Routes>
+
+    <Footer/>
+
+
   </div>
   
   // const [data, setData] = useState([]);

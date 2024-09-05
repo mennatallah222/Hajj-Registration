@@ -1,6 +1,8 @@
 // import CircleSvg from "./CircleSvg"
 
-export default function Card({img, span, p, price}){
+import { Link } from "react-router-dom";
+
+export default function Card({id, img, span, p, price}){
 
  
 
@@ -14,7 +16,9 @@ export default function Card({img, span, p, price}){
                     <span>{span}</span>
                     <p>{p}</p>
                     <p id="price">{price}</p>
-                    <button>View Details</button>
+                    <Link to={`/packages/${id}`}>
+                        <button>View Details</button>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -28,6 +28,7 @@ export default function Login() {
                     window.localStorage.setItem("auth-token", response.data.token);
 
                     window.localStorage.setItem("email", email);
+                    window.localStorage.setItem("role", response.data.role);
                     window.location.pathname="/";
                 }
 

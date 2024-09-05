@@ -11,8 +11,10 @@ export default function Users() {
         axios.get('/user/all', {
             headers: { 'auth-token': token }
         })
-        .then((data)=>setUsers(data.data))
-        
+        .then((data)=>{
+            setUsers(data.data);
+            console.log(data.data);
+        })    
     }, []);
 
     
@@ -24,7 +26,7 @@ export default function Users() {
         })
         .then(()=>{
             //updating the state by filtering out the deleted user
-            setUsers(users.filter(u=>u.id!==id));
+            setUsers(users.filter(u=>u._id!==id));
         })
     }
 
@@ -37,19 +39,21 @@ export default function Users() {
                         <th>id</th>
                         <th>name</th>
                         <th>email</th>
+                        <th>role</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     
                         {users.map((u)=>(
-                            <tr key={u.id}>
-                                <td>{u.id}</td>
+                            <tr key={u._id}>
+                                <td>{u._id}</td>
                                 <td>{u.name}</td>
                                 <td>{u.email}</td>
+                                <td>{u.role}</td>
                                 <td className="icons">
-                                <i className="fa-solid fa-trash" style={{color:"red"}} onClick={()=>deleteUser(u.id)}></i>
-                                <Link to={`${u.id}`}>
+                                <i className="fa-solid fa-trash" style={{color:"red"}} onClick={()=>deleteUser(u._id)}></i>
+                                <Link to={`${u._id}`}>
                                     <i className="fa-solid fa-pen-to-square" style={{color:"blue"}}></i>
                                 </Link>
                                 </td>

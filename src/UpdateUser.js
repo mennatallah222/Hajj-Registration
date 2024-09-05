@@ -20,9 +20,10 @@ export default function UpdateUser(){
 
 
     const id=window.location.pathname.split("/").slice(-1)[0];
+    console.log("this is user id: ", id);
     useEffect(() => {
         const token = localStorage.getItem('auth-token'); // retrieve the token from localStorage
-        axios.get(`/${id}`, { //baseURL is set to '/api/user'
+        axios.get(`user/${id}`, { //baseURL is set to '/api/user'
             headers: { 'auth-token': token }
         })
         .then((response)=>setData({...data, name: response.data.name, email: response.data.email})) // log the user data to the console

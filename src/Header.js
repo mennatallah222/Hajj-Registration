@@ -6,6 +6,7 @@ function Header() {
 
     function logOut() {
         window.localStorage.removeItem("email");
+        window.localStorage.removeItem("role");
         navigate("/login");
     }
 
@@ -32,6 +33,17 @@ function Header() {
                         <Link to={"/"} onClick={logOut}>Log Out</Link>
                     </>
                 )}
+                {
+                    window.localStorage.getItem("role")==="admin"?(
+                        <>
+                            <Link className="dashboard-btn" to={"/dashboard"}>Dashboard</Link>
+                        </>
+                    )
+                    :
+                    (
+                        ""
+                    )
+                }
             </div>
         </nav>
     );
