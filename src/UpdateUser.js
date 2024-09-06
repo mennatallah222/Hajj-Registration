@@ -28,7 +28,7 @@ export default function UpdateUser(){
         })
         .then((response)=>setData({...data, name: response.data.name, email: response.data.email})) // log the user data to the console
         .catch((error) => console.error('Error fetching user:', error)); // handle any errors
-    }, []);
+    }, [id, data]);
 
 
     async function Submit(e) {

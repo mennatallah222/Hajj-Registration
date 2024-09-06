@@ -15,15 +15,22 @@ import AddPackage from "./AddPackage";
 import Messages from "./Messages";
 import Footer from "./Footer";
 import PackageDetails from "./PackageDetails";
+import { useState } from "react";
 
 
 
 
 export default function App(){
 
-  return <div>
 
-    <Header/>
+  const [night, setNight]=useState(false);
+    const handleNight=()=>{
+        setNight((prev)=>!prev);
+    };
+
+  return <div className={`app ${night? 'night-mode':''}`}>
+
+    <Header onNightToggle={handleNight} night={night}/>
     <Routes>
       <Route path="/register" element={<SignUp/>}/>
       <Route path="/login" element={<Login/>}/>
@@ -49,27 +56,4 @@ export default function App(){
 
 
   </div>
-  
-  // const [data, setData] = useState([]);
-
-  //   const res = data.map((item, index) => <Content key={index} title={item.title} price={item.price} image={item.image} rating={item.rating.rate} />);
-
-  //   useEffect(() => {
-  //       fetch('https://fakestoreapi.com/products')
-  //           .then((res) => res.json())
-  //           .then((data )=> {console.log(data);
-  //                       setData(data); }
-  //                   )
-  //   }, []);
-
-  //   useEffect(() => {
-  //     fetch('https://jobicy.com/api/v2/remote-jobs')
-  //         .then((res) => res.json())
-  //         .then((data2 )=> {console.log(data2);
-  //                    }
-  //                 )
-  // }, []);
-    
-  //  return <div className={"contentDivs"}>{res}</div> ;
-}
-// 
+  }

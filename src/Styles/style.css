@@ -711,6 +711,16 @@ nav {
   align-items: center;
   color: red;
 }
+.app {
+  transition: background-color 0.3s ease;
+}
+.app.night-mode {
+  background-color: #b49164;
+  color: white;
+}
+.night-btn {
+  background: none;
+}
 /*
 .contact {
   width: 70%;

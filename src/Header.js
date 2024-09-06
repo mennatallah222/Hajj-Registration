@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function Header() {
+function Header({onNightToggle, night}) {
     const navigate = useNavigate();
 
     function logOut() {
@@ -20,6 +20,8 @@ function Header() {
                 <Link to={"/about"}>About</Link>
                 <Link to={"/contact-us"}>Contact Us</Link>
             </div>
+
+            
 
             <div className="inWebsite">
                 {!window.localStorage.getItem("email") ? (
@@ -44,6 +46,17 @@ function Header() {
                         ""
                     )
                 }
+
+                <div onClick={onNightToggle} className="night-btn" style={{cursor:"pointer", backgroundColor:"gray", width:"50px", padding:"10px", display:"flex", justifyContent:"center", alignItems:"center", borderRadius:"50%", height:"50px"}}>
+                    {
+                        night?
+                        <i class="fa-solid fa-moon"></i>
+                        :
+                        <i class="fa-solid fa-sun"></i>
+                        
+                    }
+                </div>
+
             </div>
         </nav>
     );
