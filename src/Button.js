@@ -1,6 +1,6 @@
-export default function Button({content}){
+export default function Button({content, id}){
     return <>
-        <button id="r-btn">
+        <button id={id?id:"r-btn"}>
             {content}
         </button>
     </>

@@ -50,9 +50,9 @@ function Header({onNightToggle, night}) {
                 <div onClick={onNightToggle} className="night-btn" style={{cursor:"pointer", backgroundColor:"gray", width:"50px", padding:"10px", display:"flex", justifyContent:"center", alignItems:"center", borderRadius:"50%", height:"50px"}}>
                     {
                         night?
-                        <i class="fa-solid fa-moon"></i>
+                        <i className="fa-solid fa-moon"></i>
                         :
-                        <i class="fa-solid fa-sun"></i>
+                        <i className="fa-solid fa-sun"></i>
                         
                     }
                 </div>

@@ -236,7 +236,15 @@ nav {
   background-color: #3e2a1b;
   color: white;
 }
-
+#btn-wrapper {
+  display: flex;
+}
+#order-btn {
+  align-self: center;
+  width: 50vw;
+  background-color: #3e2a1b;
+  color: white;
+}
 /* ****************** Second Page ******************** */
 #second-page {
   display: flex;
@@ -667,14 +675,17 @@ nav {
 } */
 .details-page {
   display: grid;
-  height: 70vh;
+  height: fit-content;
   padding: 20px;
   box-shadow: 20px 4px 15px rgba(62, 62, 62, 0.362);
 }
 #card-pkg {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
+  grid-template-rows: 1fr; */
   gap: 10px;
 }
 #card-pkg div,
@@ -682,9 +693,11 @@ nav {
   display: flex;
   justify-content: center;
   justify-self: center;
-  align-items: center;
   align-self: center;
   justify-self: center;
+}
+#card-pkg div {
+  width: 70%;
 }
 #pkg-img {
   grid-column: 1/2;
@@ -703,6 +716,43 @@ nav {
 .card-text h1 {
   font-size: 4rem;
 }
+
+/* ****************************************************** */
+#package-includes-excludes {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 10px;
+  background-color: #d0cdcd8a;
+  width: 100%;
+  margin-bottom: 10px;
+}
+#package-includes-excludes div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center;
+}
+#package-includes-excludes ul {
+  display: flex;
+  justify-content: center;
+}
+.package-includes-excludes-li {
+  display: flex;
+  flex-direction: row !important;
+}
+.package-includes-excludes-li i {
+  font-size: 24px;
+  margin-right: 10px;
+}
+.fa-check {
+  color: green;
+}
+.fa-times {
+  color: red;
+}
+
+/* ****************************************************** */
 #error-page {
   display: flex;
   justify-content: center;

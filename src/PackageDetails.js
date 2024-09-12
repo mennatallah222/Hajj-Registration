@@ -1,6 +1,7 @@
 import axios from "./api/axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
+import Button from "./Button";
 
 export default function PackageDetails(){
     const {id}=useParams();
@@ -39,10 +40,34 @@ export default function PackageDetails(){
                     />
                     <div className="card-text">
                         <h1>{card.p}</h1>
-                        <h3 id="price">{card.price}$</h3>
+                        <h3 id="price">{card.price}$ per person</h3>
+                        <div id="package-includes-excludes">
+                            <div className="includes">
+                                <ul>Included: </ul>
+                                <div className="package-includes-excludes-li">
+                                    <i className="fa fa-check" aria-hidden="true"></i>
+                                    <li>visa</li>
+                                </div>
+                            </div>
+                            
+                            <div className="excludes">
+                                <ul>Excluded: </ul>
+                                <div className="package-includes-excludes-li">
+                                    <i className="fa fa-times" aria-hidden="true"></i>
+                                    <li>visa</li>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="btn-wrapper">
+                            <Link to={"/order"}>
+                                <Button content={"Order"} id="order-btn"/>
+                            </Link>
+                        </div>
+                        
                     </div>
                 </div>
-            )};
+            )}
         
         </div>
 }
