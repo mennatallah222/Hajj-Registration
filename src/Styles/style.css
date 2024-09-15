@@ -733,10 +733,7 @@ nav {
   justify-content: center !important;
   align-items: center;
 }
-#package-includes-excludes ul {
-  display: flex;
-  justify-content: center;
-}
+
 .package-includes-excludes-li {
   display: flex;
   flex-direction: row !important;
@@ -752,6 +749,18 @@ nav {
   color: red;
 }
 
+#packageProviderContact {
+  width: 150px;
+  padding: 10px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  background-color: #8b6d47;
+  transition: all 0.2s ease-in-out;
+}
+#packageProviderContact:hover {
+  background-color: rgb(176, 148, 111);
+}
 /* ****************************************************** */
 #error-page {
   display: flex;

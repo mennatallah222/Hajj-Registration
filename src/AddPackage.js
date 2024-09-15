@@ -7,15 +7,44 @@ export default function AddPackage(){
         img:null,
         span:"", //span is the type of the package: best seller??
         p:"",
-        price:""
+        price:"",
+        includes:[],
+        excludes:[],
+        description:"",
+        packageProvider:"",
+        packageProviderContact:""
     });
     
     const [errorMsg, setErrorMsg] = useState("");
     const [successMsg, setSuccessMsg] = useState(false);
+    const [includesInput, setIncludesInput] = useState("");
+    const [excludesInput, setExcludesInput] = useState("");
 
 
     const handleImageChange=(e)=>{
         setData({...data, img:e.target.files[0]});
+    }
+
+    const addIncludeItem=()=>{
+        if(includesInput.trim()){
+            setData({...data, includes:[...data.includes, includesInput]});
+            setIncludesInput("");
+        }
+    };
+
+    const addExcludeItem=()=>{
+        if(excludesInput.trim()){
+            setData({...data, excludes:[...data.excludes, excludesInput]});
+            setExcludesInput("");
+        }
+    };
+
+    const validateForm = () => {
+        if (!data.img || !data.p || !data.span || !data.price) {
+            setErrorMsg('All fields are required');
+            return false;
+        }
+        return true;
     }
 
     async function Submit(e) {
@@ -23,13 +52,20 @@ export default function AddPackage(){
     
         setErrorMsg("");
         setSuccessMsg(false);
-    
+
+        if(!validateForm()) return;
+
         const formData = new FormData();
         formData.append('img', data.img);
         formData.append('span', data.span);
         formData.append('p', data.p);
         formData.append('price', data.price);
-    
+        formData.append('includes', data.includes);
+        formData.append('excludes', data.excludes);
+        formData.append('description', data.description);
+        formData.append('packageProvider', data.packageProvider);
+        formData.append('packageProviderContact', data.packageProviderContact);
+
         // console.log("Selected file:", data.img);
 
         try {
@@ -42,7 +78,7 @@ export default function AddPackage(){
             setSuccessMsg(true);
             console.log("Request was successful", response.data);
     
-            if (response.status === 200) {
+            if (response.status === 201) {
                 window.location.pathname = "/";
             }
         } 
@@ -86,12 +122,71 @@ export default function AddPackage(){
                     placeholder="Enter price..."
                 />
 
+                <label htmlFor="description">Description </label>
+                <input
+                    value={data.description}
+                    onChange={e => setData({...data, description: e.target.value})}
+                    type="text"
+                    placeholder="Enter description..."
+                />
+
+
+                <label htmlFor="packageProvider">Package Provider </label>
+                <input
+                    value={data.packageProvider}
+                    onChange={e => setData({...data, packageProvider: e.target.value})}
+                    type="text"
+                    placeholder="Enter packageProvider..."
+                />
+
+                <label htmlFor="packageProviderContact">Package Provider Contact </label>
+                <input
+                    value={data.packageProviderContact}
+                    onChange={e => setData({...data, packageProviderContact: e.target.value})}
+                    type="text"
+                    placeholder="Enter package provider contact..."
+                />
+
+
                 <label htmlFor="img">Image </label>
                 <input
                     onChange={handleImageChange}
                     type="file"
                 />
                 
+                <label htmlFor="includes">Includes</label>
+                <div style={{ display: "flex", gap: "10px" }}>
+                    <input
+                        value={includesInput}
+                        onChange={e => setIncludesInput(e.target.value)}
+                        type="text"
+                        placeholder="Add an item to include..."
+                    />
+                    <button type="button" onClick={addIncludeItem}>Add</button>
+                </div>
+                <ul>
+                    {data.includes.map((include, index) => (
+                        <li key={index}>{include}</li>
+                    ))}
+                </ul>
+
+                <label htmlFor="excludes">Excludes</label>
+                <div style={{ display: "flex", gap: "10px" }}>
+                    <input
+                        value={excludesInput}
+                        onChange={e => setExcludesInput(e.target.value)}
+                        type="text"
+                        placeholder="Add an item to exclude..."
+                    />
+                    <button type="button" onClick={addExcludeItem}>Add</button>
+                </div>
+                <ul>
+                    {data.excludes.map((exclude, index) => (
+                        <li key={index}>{exclude}</li>
+                    ))}
+                </ul>
+
+
                 <button type="submit">Submit</button>
 
                 {/* displaying the errors coming from the server */}

@@ -15,7 +15,8 @@ export default function Card({id, img, span, p, price}){
                 <div className="card-text">
                     <span>{span}</span>
                     <p>{p}</p>
-                    <p id="price">{price}</p>
+                    <p id="price">{price}$</p>
+
                     <Link to={`/packages/${id}`}>
                         <button>View Details</button>
                     </Link>

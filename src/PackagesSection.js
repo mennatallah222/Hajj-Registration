@@ -74,7 +74,7 @@ export default function PackagesSection(){
         <div className="cards-container">
             {
                 cards.map((card, _id)=>(
-                    <Card key={_id}  id={card._id}  img={`http://localhost:5000/uploads/${card.img}`} span={card.span} p={card.p} price={card.price}/>
+                    <Card key={_id}  id={card._id}  img={`http://localhost:5000/uploads/${card.img}`} span={card.span} p={card.p} price={card.price} includes={card.includes} excludes={card.excludes}/>
                 ))
             }
             <Card  img={img1} span={"Best Seller"} p={"umrah 9 days"} price={"$1950/preson"}/>
