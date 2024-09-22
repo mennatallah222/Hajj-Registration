@@ -1,11 +1,11 @@
-import axios from './api/axios';
+import axios from '../api/axios';
 import { useState } from "react";
 
 export default function AddPackage(){
     
     const [data, setData]=useState({
         img:null,
-        span:"", //span is the type of the package: best seller??
+        span:"", //span is the type of the package: best seller
         p:"",
         price:"",
         includes:[],
@@ -79,7 +79,7 @@ export default function AddPackage(){
             console.log("Request was successful", response.data);
     
             if (response.status === 201) {
-                window.location.pathname = "/";
+                window.location.pathname = "/dashboard/packages";
             }
         } 
         catch (err) {

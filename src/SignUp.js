@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from './api/axios';
+import residencies from './Files/countries.json';
 
 export default function SignUp() {
     // const [name, setName] = useState("");
@@ -10,8 +11,10 @@ export default function SignUp() {
         name:"",
         email:"",
         password:"",
-        repeatPassword:""
+        repeatPassword:"",
+        countryOfResidence:""
     });
+    const [residenceOptions, setResidenceOptions]=useState([]);
 
     const [accept, setAccept] = useState(false);
     const [flag, setFlag] = useState(true);
@@ -19,6 +22,9 @@ export default function SignUp() {
     const [errorMsg, setErrorMsg] = useState("");
     const [successMsg, setSuccessMsg] = useState(false);
 
+    useEffect(()=>{
+        setResidenceOptions(residencies);
+    }, []);
 
     async function Submit(e) {
         e.preventDefault();
@@ -28,7 +34,8 @@ export default function SignUp() {
     
         if (data.name === "" || data.password.length < 8 || data.repeatPassword !== data.password) {
             setFlag(false);//if data is not valid
-        } else {
+        }
+        else {
             setFlag(true);
         }
     
@@ -47,7 +54,8 @@ export default function SignUp() {
                     window.localStorage.setItem("role", response.data.role);
                     window.location.pathname="/";
                 }
-            } catch (err) {
+            }
+            catch (err) {
                 if (err.response && err.response.data) {
                     setErrorMsg(err.response.data);
                     console.error("Error occurred while making the request", err.response.data);
@@ -97,6 +105,22 @@ export default function SignUp() {
                 />
                 {data.repeatPassword !== data.password && accept && <p className={"error"}>Passwords must match</p>}
                 
+                <label htmlFor="countryOfResidence">Select Country Of Residence </label>
+                <select
+                    value={data.countryOfResidence}
+                    onChange={e => setData({...data, countryOfResidence:e.target.value})}
+                >
+                    <option value="" disabled>Select your country</option>
+                    {
+                        residenceOptions.map((c, index)=>(
+                            <option key={index} value={c.name}>
+                                {c.name}
+                            </option>
+                        ))
+                    }
+                </select>
+
+
                 <button type="submit">Submit</button>
 
                 {/* displaying the errors coming from the server */}

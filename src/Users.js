@@ -39,6 +39,7 @@ export default function Users() {
                         <th>id</th>
                         <th>name</th>
                         <th>email</th>
+                        <th>country</th>
                         <th>role</th>
                         <th>Actions</th>
                     </tr>
@@ -50,6 +51,7 @@ export default function Users() {
                                 <td>{u._id}</td>
                                 <td>{u.name}</td>
                                 <td>{u.email}</td>
+                                <td>{u.countryOfResidence? u.countryOfResidence:"N/A"}</td>
                                 <td>{u.role}</td>
                                 <td className="icons">
                                 <i className="fa-solid fa-trash" style={{color:"red"}} onClick={()=>deleteUser(u._id)}></i>

@@ -17,6 +17,8 @@ function Header({onNightToggle, night}) {
             <button id="nav-toggle" onClick={()=>setNav(!isNavOpen)}>☰</button>
             <div id="nav-div" className={isNavOpen?"show":""}>
                 <Link to={"/"}>Home</Link>
+                <Link to={"/packages"}>Packages</Link>
+                <Link to={"/journey"}>The Journey</Link>
                 <Link to={"/about"}>About</Link>
                 <Link to={"/contact-us"}>Contact Us</Link>
             </div>

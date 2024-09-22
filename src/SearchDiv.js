@@ -1,5 +1,5 @@
-export default function SearchDiv({key, p}){
-    return <div key={key}>
+export default function SearchDiv({_id, p}){
+    return <div key={_id}>
         {p}
     </div>
 }

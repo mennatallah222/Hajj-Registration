@@ -8,6 +8,7 @@ import reportWebVitals from "./reportWebVitals";
 import {BrowserRouter} from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 
 
@@ -15,14 +16,14 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-  {
-      <>
-      <App/>
-    </>
-    
-  }
-</BrowserRouter>
+    <BrowserRouter>
+    {
+        <>
+        <App/>
+      </>
+      
+    }
+  </BrowserRouter>
 );
 
 reportWebVitals();

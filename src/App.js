@@ -11,11 +11,16 @@ import Users from "./Users";
 import UpdateUser from "./UpdateUser";
 import ContactUs from "./ContactUs";
 import Packages from "./Packages";
-import AddPackage from "./AddPackage";
+import AddPackage from "./Components/AddPackage";
 import Messages from "./Messages";
 import Footer from "./Footer";
 import PackageDetails from "./PackageDetails";
 import { useState } from "react";
+import PackagesSection from "./PackagesSection";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import Profile from "./Profile";
+import { UserProvider } from "./Contexts/UserContext";
+import JourneyPage from "./Components/JourneyPage";
 
 
 
@@ -29,13 +34,23 @@ export default function App(){
     };
 
   return <div className={`app ${night? 'night-mode':''}`}>
+          <GoogleOAuthProvider clientId='660037353116-352slci72o5nugokn04j01pu2bej8s5k.apps.googleusercontent.com'>
 
     <Header onNightToggle={handleNight} night={night}/>
+
     <Routes>
       <Route path="/register" element={<SignUp/>}/>
-      <Route path="/login" element={<Login/>}/>
+
+
+      <Route path="/login" element={
+        <Login/>
+      }/>
+      
       <Route path="/" element={<Home />} />
+      <Route path="packages" element={<PackagesSection />} />
       <Route path="/packages/:id" element={<PackageDetails/>}/>
+
+      <Route path="/journey" element={<JourneyPage />} />
 
       <Route path="/contact-us" element={<ContactUs />} />
 
@@ -49,11 +64,18 @@ export default function App(){
         <Route path="messages" element={<Messages/>}/>
       </Route>
         
+      <Route path="profile" element={
+        <UserProvider>
+          <Profile/>
+        </UserProvider>
+        }/>
+
 
     </Routes>
 
     <Footer/>
 
+      </GoogleOAuthProvider>
 
   </div>
   }

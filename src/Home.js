@@ -4,6 +4,7 @@ import ImageSlider from "./ImageSlider";
 import AirlinesSlider from "./AirlinesSlider";
 import ServicesCard from "./ServicesCard";
 import PackagesSection from "./PackagesSection";
+// import SwiperComponent from "./Components/SwiperComponent";
 
 
 // Home.js
@@ -26,7 +27,7 @@ export default function Home() {
             </div>
         </div>
 
-        <section id="second-page">
+        <section >
             <PackagesSection/>
         </section>
 
@@ -34,12 +35,14 @@ export default function Home() {
         <section>
             <ImageSlider/>
             
+            <h4 style={{textAlign:"center", fontSize:"50px"}}>Our Airlines</h4>
 
             <AirlinesSlider/>
             <h4 style={{textAlign:"center", fontSize:"50px"}}>We provide you</h4>
         </section>
 
         <section className="services">
+            {/* <SwiperComponent/> */}
             <ServicesCard/>
             <ServicesCard/>
             <ServicesCard/>

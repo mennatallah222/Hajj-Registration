@@ -11,7 +11,17 @@ export default function Card({id, img, span, p, price}){
                     {/* <CircleSvg/>                     */}
             <div className="card">
                 <img src={`${img.replace(/\\/g, '/')}`} alt="package"></img>
-                
+                <i className="fa-solid fa-heart" style={{
+                    backgroundColor: "black",
+                    position: "absolute",
+                    left: "0.5rem",
+                    top: "0.5rem",
+                    borderRadius: "50%",
+                    padding: "10px",
+                    textAlign: "center",
+                    color: "white",
+                    cursor: "pointer"
+                }}/>
                 <div className="card-text">
                     <span>{span}</span>
                     <p>{p}</p>
